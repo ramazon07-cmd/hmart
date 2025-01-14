@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="breadcrumb-area">
+    <div class="container">
+        <div class="row align-items-center justify-content-center">
+            <div class="col-12 text-center">
+                <h2 class="breadcrumb-title">About Us</h2>
+                <!-- breadcrumb-list start -->
+                <ul class="breadcrumb-list">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item active">About Us</li>
+                </ul>
+                <!-- breadcrumb-list end -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb-area end -->
+<!-- About section Start -->
+<div class="about-area pt-100px">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="about-wrapper text-center">
+                    <div class="about-contant">
+                        <h2 class="title">
+                            <span>Smart Fashion </span>
+                            With Smart Devices
+                        </h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea comml consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non </p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea comml consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="trstimonial-area pt-100px pb-100px">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-title text-center m-0">
+                    <h2 class="title">Client Feedback</h2>
+                    <p>There are many variations of passages of Lorem Ipsum available</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <!-- Swiper -->
+                <div class="swiper-container content-top slider-nav-style-1">
+                    <div class="swiper-wrapper">
+                        {% for contact in contacts %}
+                        <div class="swiper-slide">
+                            <div class="testi-inner">
+                                <div class="testi-content">
+                                    <p>{{ contact.message }}.
+                                    </p>
+                                </div>
+                                <div class="testi-author">
+                                    <div class="author-image">
+                                        {% if contact.avatar and contact.avatar.url %}
+                                        <img class="img-responsive" src="{{ contact.avatar.url }}" alt="">
+                                        {% else %}
+                                        <img class="img-responsive" src="{% static 'assets/images/review-image/1.png' %}" alt="">
+                                        {% endif %}
+                                    </div>
+                                    <div class="author-name">
+                                        <h4 class="name">{{ contact.name }}n<span>Client</span></h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <!-- Add Arrows -->
+                    <div class="swiper-buttons">
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
